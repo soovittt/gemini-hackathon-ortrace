@@ -32,3 +32,26 @@ npm run build
 Output is in `dist/`. Serve with any static host or `npm run preview`.
 
 ---
+
+
+# Ortrace API (Backend)
+
+Rust/Axum REST API for the Ortrace app (video analysis, projects, tickets, auth).
+
+## Stack
+
+- **Rust**, **Axum**, **SQLx** (PostgreSQL), **Gemini API**, **Google OAuth**
+
+## Run locally
+
+1. Copy `.env.example` to `.env` and set:
+   - `DATABASE_URL` – PostgreSQL connection string
+   - `GEMINI_API_KEY` – from [Google AI Studio](https://aistudio.google.com/app/apikey)
+   - `JWT_SECRET`, `JWT_REFRESH_SECRET` – e.g. `openssl rand -base64 32`
+   - Optional: `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` for Sign in with Google
+
+2. Create the DB and run migrations (SQL in `migrations/`).
+
+3. Run:ash
+   cargo run
+   
