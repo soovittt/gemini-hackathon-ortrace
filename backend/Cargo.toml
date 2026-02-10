@@ -1,0 +1,46 @@
+[package]
+name = "video-analyzer-api"
+version = "0.1.0"
+edition = "2021"
+description = "REST API for video analysis using Google Gemini AI"
+
+[dependencies]
+# Web framework
+axum = { version = "0.7", features = ["multipart", "macros"] }
+axum-extra = { version = "0.9", features = ["typed-header"] }
+tokio = { version = "1.35", features = ["full"] }
+tower-http = { version = "0.5", features = ["cors", "trace"] }
+tower = "0.4"
+
+# HTTP client (for Gemini API and OAuth)
+reqwest = { version = "0.11", features = ["json"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Database
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "postgres", "uuid", "chrono", "migrate", "json"] }
+
+# Storage (GCS via REST API)
+async-trait = "0.1"
+urlencoding = "2.1"
+
+# Authentication
+jsonwebtoken = "9.2"
+bcrypt = "0.15"
+oauth2 = "4.4"
+
+# Utilities
+anyhow = "1.0"
+base64 = "0.21"
+tempfile = "3.8"
+dotenv = "0.15"
+uuid = { version = "1.6", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+rand = "0.8"
+thiserror = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+validator = { version = "0.16", features = ["derive"] }
+futures = "0.3"

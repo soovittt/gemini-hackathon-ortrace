@@ -1,0 +1,8 @@
+# Cargo configuration
+[build]
+# Suppress future incompatibility warnings from dependencies
+# This is a known issue in sqlx-postgres v0.7.4 and doesn't affect functionality
+rustflags = []
+
+[future-incompat-report]
+frequency = "never"
